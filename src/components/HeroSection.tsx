@@ -10,6 +10,8 @@ interface HeroSectionProps {
   onCtaClick?: () => void;
 }
 
+import { GradientButton } from "./ui/gradient-button";
+
 const HeroSection = ({
   title = "Transform Your Business with AI",
   subtitle = "Leverage cutting-edge artificial intelligence solutions to drive innovation and growth",
@@ -17,7 +19,7 @@ const HeroSection = ({
   onCtaClick = () => console.log("CTA clicked"),
 }: HeroSectionProps) => {
   return (
-    <section className="relative w-full h-[800px] bg-gradient-to-br from-background to-primary/10 overflow-hidden">
+    <section className="relative w-full min-h-screen bg-gradient-to-br from-background via-primary/5 to-primary/10 overflow-hidden">
       {/* Animated particles background */}
       <div className="absolute inset-0">
         {Array.from({ length: 50 }).map((_, i) => (
@@ -47,7 +49,7 @@ const HeroSection = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60"
+          className="text-5xl md:text-7xl font-bold mb-6 gradient-text tracking-tight"
         >
           {title}
         </motion.h1>
@@ -66,10 +68,20 @@ const HeroSection = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Button size="lg" onClick={onCtaClick} className="text-lg px-8 py-6">
+          <GradientButton
+            onClick={onCtaClick}
+            className="text-lg px-8 py-6 group"
+          >
             {ctaText}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+            <motion.div
+              className="inline-block ml-2"
+              initial={{ x: 0 }}
+              animate={{ x: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            >
+              <ArrowRight className="h-5 w-5" />
+            </motion.div>
+          </GradientButton>
         </motion.div>
       </div>
     </section>

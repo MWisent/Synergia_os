@@ -23,7 +23,7 @@ const DemoSection = ({
   };
 
   return (
-    <section className="w-full min-h-[600px] py-16 bg-slate-50">
+    <section className="w-full min-h-[600px] section-padding bg-gradient-to-b from-background to-primary/5">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,7 @@ const DemoSection = ({
           <p className="text-lg text-muted-foreground">{demoText}</p>
         </motion.div>
 
-        <Card className="max-w-4xl mx-auto">
+        <Card className="max-w-4xl mx-auto backdrop-blur-sm bg-white/50 hover-card">
           <CardHeader>
             <CardTitle className="text-2xl">Try Our AI Capabilities</CardTitle>
           </CardHeader>

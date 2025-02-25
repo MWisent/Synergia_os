@@ -34,13 +34,16 @@ const Navigation = ({
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-white ${isScrolled ? "shadow-md" : ""}`}
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 ${isScrolled ? "shadow-md" : ""}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
     >
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <div className="text-2xl font-bold text-primary">AI Agency</div>
+        <div className="flex items-center gap-2">
+          <img src="/logo.svg" alt="Synergiaos" className="h-8 w-8" />
+          <span className="text-2xl font-bold text-primary">Synergiaos</span>
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
@@ -54,7 +57,11 @@ const Navigation = ({
               {link.label}
             </Button>
           ))}
-          <Button>Get Started</Button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+              Get Started
+            </Button>
+          </motion.div>
         </div>
 
         {/* Mobile Navigation */}

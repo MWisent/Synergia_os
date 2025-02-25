@@ -22,11 +22,14 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -5 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="w-[350px] h-[400px] bg-white"
+      className="w-[350px] h-[400px]"
     >
-      <Card className="h-full border-2 hover:border-primary/50 transition-colors">
+      <Card className="h-full border hover:border-primary/50 transition-all duration-300 bg-white/50 backdrop-blur-sm hover:shadow-xl">
         <CardHeader className="text-center">
           <div className="mx-auto p-4 rounded-full bg-primary/10 mb-4">
             <Icon className="w-8 h-8 text-primary" />
